@@ -19,10 +19,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mThreads = (RecyclerView) findViewById(R.id.list_thread);
-
         ThreadAdapter adapter = new ThreadAdapter(MainActivity.this,ThreadMock.getThreads());
         mThreads.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         mThreads.setAdapter(adapter);
-
     }
 }

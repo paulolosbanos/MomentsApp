@@ -5,9 +5,9 @@
     card_view:cardElevation="4dp"
     card_view:cardUseCompatPadding="true"
     card_view:cardBackgroundColor="@android:color/white"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp">
+    android:layout_marginLeft="@dimen/default_margin"
+    android:layout_marginRight="@dimen/default_margin"
+    android:layout_marginTop="@dimen/default_margin">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,16 +17,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginBottom="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin">
 
             <ImageView
                 android:id="@+id/profilePic"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_width="@dimen/profile_image_dimen"
+                android:layout_height="@dimen/profile_image_dimen"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
                 android:src="@drawable/img1"/>
 
             <LinearLayout
@@ -35,7 +35,7 @@
                 android:gravity="center|left"
                 android:orientation="vertical"
                 android:id="@+id/ts_main_detail"
-                android:layout_marginLeft="10dp">
+                android:layout_marginLeft="@dimen/default_margin">
 
                 <TextView
                     android:id="@+id/threadStarter"
@@ -50,7 +50,7 @@
                     android:textColor="@color/app_black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/font_xsmall"
                     android:text="%s mins ago"/>
 
             </LinearLayout>
@@ -60,72 +60,72 @@
         <ImageView
             android:id="@+id/threadImagePost"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/post_image_dimen"
             android:scaleType="centerCrop"
             android:src="@drawable/img_post_pic1"/>
 
         <TextView
             android:id="@+id/threadTextPost"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/double_margin"
+            android:layout_marginRight="@dimen/double_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/app_black"
-            android:textSize="11sp"
+            android:textSize="@dimen/font_small"
             android:text="Having breakfast now. Good morning everyone!"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/double_margin"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="@dimen/default_margin">
 
                 <CheckBox
                     android:id="@+id/likeButton"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/double_margin"
+                    android:layout_height="@dimen/double_margin"
                     android:gravity="center"
                     android:button="@null"
                     android:background="@drawable/like_button" />
 
                 <TextView
                     android:id="@+id/likeCount"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_marginRight="@dimen/default_margin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/app_black"
-                    android:textSize="11sp"
+                    android:textSize="@dimen/font_small"
                     android:text="%s Likes"/>
 
                 <ImageButton
                     android:id="@+id/commentButton"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/widget_dimen"
+                    android:layout_height="@dimen/widget_dimen"
                     android:button="@null"
                     android:background="@drawable/ic_comment_black_48dp"
                     android:gravity="center" />
 
                 <TextView
                     android:id="@+id/commentCount"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_marginRight="@dimen/default_margin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/app_black"
-                    android:textSize="11sp"
+                    android:textSize="@dimen/font_small"
                     android:text="%s Comments"/>
         </LinearLayout>
 
         <View
             android:id="@+id/commentDivider"
             android:visibility="gone"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="@dimen/double_margin"
+            android:layout_marginRight="@dimen/double_margin"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/app_light_gray3"/>
@@ -135,7 +135,7 @@
             android:id="@+id/list_comment"
             android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="180dp">
+            android:layout_height="@dimen/comment_area_dimen">
 
         </android.support.v7.widget.RecyclerView>
 
@@ -145,25 +145,25 @@
             android:id="@+id/viewMore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingBottom="10dp"
+            android:paddingLeft="@dimen/double_margin"
+            android:paddingBottom="@dimen/default_margin"
             android:gravity="center_vertical">
 
 
             <ImageButton
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/double_margin"
+                android:layout_height="@dimen/double_margin"
                 android:src="@null"
                 android:background="@drawable/ic_comment_black_48dp"
                 />
 
             <TextView
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="@dimen/default_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="View more comments"
                 android:textColor="@color/app_black"
-                android:textSize="11sp"
+                android:textSize="@dimen/font_small"
                 />
 
         </LinearLayout>
@@ -173,37 +173,37 @@
             android:id="@+id/commentArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginLeft="@dimen/double_margin"
+            android:layout_marginRight="@dimen/double_margin"
+            android:layout_marginBottom="@dimen/double_margin">
 
             <EditText
                 android:id="@+id/commentEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_border"
-                android:paddingLeft="10dp"
+                android:paddingLeft="@dimen/default_margin"
                 android:paddingRight="50dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingTop="@dimen/half_margin"
+                android:paddingBottom="@dimen/half_margin"
                 android:singleLine="true"
                 android:hint="Comment"
-                android:textSize="12sp"
+                android:textSize="@dimen/font_small"
                 />
 
             <TextView
                 android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="@dimen/half_margin"
+                android:layout_marginRight="@dimen/default_margin"
                 android:gravity="center|center_vertical"
                 android:layout_alignTop="@+id/commentEdit"
                 android:layout_alignBottom="@+id/commentEdit"
                 android:layout_alignRight="@+id/commentEdit"
                 android:textColor="@android:color/darker_gray"
                 android:clickable="true"
-                android:textSize="12sp"
+                android:textSize="@dimen/font_default"
                 android:text="Post"/>
 
         </RelativeLayout>

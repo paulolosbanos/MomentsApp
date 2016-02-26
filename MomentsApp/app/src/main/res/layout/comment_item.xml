@@ -6,14 +6,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="@dimen/default_margin">
 
         <ImageView
             android:id="@+id/profilePic"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/profile_image_dimen"
+            android:layout_height="@dimen/profile_image_dimen"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
             android:src="@drawable/img1"/>
 
         <LinearLayout
@@ -22,7 +22,7 @@
             android:gravity="center|left"
             android:orientation="vertical"
             android:id="@+id/ts_main_detail"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="@dimen/default_margin">
 
             <TextView
                 android:id="@+id/commenterName"
@@ -48,8 +48,8 @@
 
     <View android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="@dimen/double_margin"
+        android:layout_marginRight="@dimen/double_margin"
         android:background="@color/app_light_gray2"/>
 </LinearLayout>
 

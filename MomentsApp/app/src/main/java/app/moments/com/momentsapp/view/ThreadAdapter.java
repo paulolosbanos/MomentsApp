@@ -42,7 +42,6 @@ public class ThreadAdapter extends RecyclerView.Adapter<ThreadAdapter.ThreadView
     String mCommentCountFormatter;
     String mLikeCountFormatter;
 
-
     public ThreadAdapter(Context context,JSONObject threads) {
         this.mContext = context;
         this.mThreads = threads;
@@ -65,11 +64,12 @@ public class ThreadAdapter extends RecyclerView.Adapter<ThreadAdapter.ThreadView
         try {
 
             Resources res = mContext.getResources();
-
+            //locating json data in order
             final JSONObject thread = mThreads.getJSONObject(ThreadMock.orderedKeys[i]);
 
             threadViewHolder.mProfilePic.setImageDrawable(res.getDrawable(ThreadMock.getImageRes(thread.getString(Key.THREAD_STARTER_IMAGE))));
 
+            //logic for making the imageview circle
             Bitmap imgBit = Utils.drawableToBitmap(threadViewHolder.mProfilePic.getDrawable());
             RoundedBitmapDrawable dr = RoundedBitmapDrawableFactory.create(res, imgBit);
             dr.setCornerRadius(Math.max(imgBit.getWidth(), imgBit.getHeight()) / 2.0f);
@@ -77,6 +77,7 @@ public class ThreadAdapter extends RecyclerView.Adapter<ThreadAdapter.ThreadView
 
             threadViewHolder.mThreadImagePost.setImageDrawable(res.getDrawable(ThreadMock.getImageRes(thread.getString(Key.THREAD_IMAGE_POST))));
 
+            //set values for view holder elements
             mThreadAgeFormatter = threadViewHolder.mThreadAge.getText().toString();
             mCommentCountFormatter = threadViewHolder.mCommentCount.getText().toString();
             mLikeCountFormatter = threadViewHolder.mLikeCount.getText().toString();
@@ -85,14 +86,16 @@ public class ThreadAdapter extends RecyclerView.Adapter<ThreadAdapter.ThreadView
             threadViewHolder.mThreadTextPost.setText(thread.getString(Key.THREAD_TEXT_POST));
 
             threadViewHolder.mThreadAge.setText(String.format(mThreadAgeFormatter, thread.getString(Key.THREAD_AGE)));
-            Log.e("qqq",thread.getString(Key.THREAD_AGE));
             threadViewHolder.mCommentCount.setText(String.format(mCommentCountFormatter, thread.getString(Key.THREAD_COMMENT_COUNT)));
             threadViewHolder.mLikeCount.setText(String.format(mLikeCountFormatter, thread.getString(Key.THREAD_LIKES)));
 
+            //Fetching Mock Comments Data from ThreadMock Class
             CommentAdapter adapter = new CommentAdapter(mContext,ThreadMock.getCommentsForThread(ThreadMock.orderedKeys[i]));
             threadViewHolder.mListComment.setLayoutManager(new LinearLayoutManager(mContext));
             threadViewHolder.mListComment.setAdapter(adapter);
 
+
+            //like button listener
             threadViewHolder.mLikeButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean pressed) {
@@ -119,20 +122,12 @@ public class ThreadAdapter extends RecyclerView.Adapter<ThreadAdapter.ThreadView
 
     class ThreadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        ImageView mProfilePic;
-        ImageView mThreadImagePost;
+        ImageView mProfilePic,mThreadImagePost;
 
-        TextView mThreadStarter;
-        TextView mThreadAge;
-        TextView mThreadTextPost;
-
-        TextView mLikeCount;
-        TextView mCommentCount;
+        TextView mThreadStarter,mThreadAge,mThreadTextPost,mLikeCount,mCommentCount;
 
         ImageButton mCommentButton;
         CheckBox mLikeButton;
-
-
         RecyclerView mListComment;
         View mCommentDivider;
         LinearLayout mViewMore;
@@ -143,6 +138,7 @@ public class ThreadAdapter extends RecyclerView.Adapter<ThreadAdapter.ThreadView
         public ThreadViewHolder(View itemView,Context context) {
             super(itemView);
 
+            //initialize hooks for elements
             mCommentButton = (ImageButton) itemView.findViewById(R.id.commentButton);
             mCommentButton.setOnClickListener(this);
 
@@ -170,6 +166,7 @@ public class ThreadAdapter extends RecyclerView.Adapter<ThreadAdapter.ThreadView
 
         @Override
         public void onClick(View view) {
+            //hide / show comment area whenever comment button/text is clicked
             switch (view.getId()) {
                 case R.id.commentCount:
                 case R.id.commentButton:
@@ -190,6 +187,4 @@ public class ThreadAdapter extends RecyclerView.Adapter<ThreadAdapter.ThreadView
             }
         }
     }
-
-
 }

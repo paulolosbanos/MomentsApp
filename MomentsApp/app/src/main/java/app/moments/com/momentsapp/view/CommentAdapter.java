@@ -48,18 +48,20 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     @Override
     public void onBindViewHolder(CommentViewHolder commentViewHolder, int i) {
         try {
-
+            //locating json data in order
             JSONObject comments = mComments.getJSONObject(ThreadMock.orderedCommentKeys[i]);
 
             Resources res = mContext.getResources();
 
             commentViewHolder.mProfilePic.setImageDrawable(res.getDrawable(ThreadMock.getImageRes(comments.getString(Key.COMMENT_POSTER_PICTURE))));
 
+            //Logic for making the imageview circular
             Bitmap imgBit = Utils.drawableToBitmap(commentViewHolder.mProfilePic.getDrawable());
             RoundedBitmapDrawable dr = RoundedBitmapDrawableFactory.create(res, imgBit);
             dr.setCornerRadius(Math.max(imgBit.getWidth(), imgBit.getHeight()) / 2.0f);
             commentViewHolder.mProfilePic.setImageDrawable(dr);
 
+            //set values for the view holder
             commentViewHolder.commenterName.setText(comments.getString(Key.COMMENT_POSTER_NAME));
             commentViewHolder.commenterText.setText(comments.getString(Key.COMMENT_TEXT_POST));
 
